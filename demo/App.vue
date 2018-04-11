@@ -2,15 +2,15 @@
   <div id="app">
     <h1>Default</h1>
     <div class="card">
-      <VueSvgFiller src="demo/assets/alert.svg"/>
+      <svg-filler src="demo/assets/account.svg"/>
     </div>
     <h1>Chane Fill & Size</h1>
     <div class="card">
-      <VueSvgFiller src="demo/assets/account.svg" fill="#00f" width="50px" height="50px"/>
+      <svg-filler src="demo/assets/alert.svg" fill="#f00" width="50px" height="50px"/>
     </div>
     <h1>Event @click.native</h1>
     <div class="card">
-      <VueSvgFiller src="demo/assets/graph.svg"
+      <svg-filler src="demo/assets/graph.svg"
         style="cursor: pointer;"
         :fill="svgGraph.fill"
         :width="svgGraph.width"
@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import VueSvgFiller from '../src/vue-svg-filler'
+import svgFiller from '../src/vue-svg-filler'
 
 export default {
   name: 'app',
   data () {
     return {
       svgGraph: {
-        fill: '#ff0000',
+        fill: '#c2f91d',
         width: '150px',
         height: '150px'
       }
@@ -42,7 +42,7 @@ export default {
     }
   },
   components: {
-    VueSvgFiller
+    svgFiller
   }
 }
 </script>
@@ -53,6 +53,10 @@ export default {
 }
 h1 {
   font-family: Arial, Helvetica, sans-serif;
+}
+#app {
+  width: 300px;
+  margin: 0 auto;
 }
 .card {
   float: left;
