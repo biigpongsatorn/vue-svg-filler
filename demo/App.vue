@@ -4,15 +4,20 @@
     <div class="card">
       <VueSvgFiller src="demo/assets/alert.svg"/>
     </div>
-    <h1>Chane Fill</h1>
+    <h1>Chane Fill & Size</h1>
     <div class="card">
-      <VueSvgFiller src="demo/assets/account.svg" :fill="svgAccount.fill" @click="svgAccount.fill = '#a4a4a4'"/>
-      <br>
-      <span>Click me for change color</span>
+      <VueSvgFiller src="demo/assets/account.svg" fill="#00f" width="50px" height="50px"/>
     </div>
-    <h1>Chage Fill & Size</h1>
+    <h1>Event @click.native</h1>
     <div class="card">
-      <VueSvgFiller src="demo/assets/graph.svg" :fill="svgGraph.fill" :width="svgGraph.width" :height="svgGraph.height"/>
+      <VueSvgFiller src="demo/assets/graph.svg"
+        style="cursor: pointer;"
+        :fill="svgGraph.fill"
+        :width="svgGraph.width"
+        :height="svgGraph.height"
+        @click.native="randomColor()"/>
+      <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
+      <span>Click icon for change color</span>
     </div>
   </div>
 </template>
@@ -25,13 +30,15 @@ export default {
   data () {
     return {
       svgGraph: {
-        fill: '#f00',
+        fill: '#ff0000',
         width: '100px',
         height: '100px'
-      },
-      svgAccount: {
-        fill: '#0f0'
       }
+    }
+  },
+  methods: {
+    randomColor () {
+      this.svgGraph.fill = `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
     }
   },
   components: {

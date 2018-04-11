@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- width: 100px;height: 100px;fill: #ccc; -->
     <svg ref="svg-template"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
