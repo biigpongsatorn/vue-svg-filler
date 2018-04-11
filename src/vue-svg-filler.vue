@@ -1,7 +1,13 @@
 <template>
   <div>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="240" height="240" viewBox="0 0 240 240">
-      <path :d="dataOfPath" :fill="colorOfFill"/>
+    <!-- width: 100px;height: 100px;fill: #ccc; -->
+    <svg ref="svg-template"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1"
+      viewBox="0 0 24 24"
+      :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }">
+      <path :d="dataOfPath"/>
     </svg>
   </div>
 </template>
@@ -17,12 +23,22 @@ export default {
     fill: {
       type: String,
       default: '#000'
+    },
+    width: {
+      type: String,
+      default: '24px'
+    },
+    height: {
+      type: String,
+      default: '24px'
     }
   },
   data () {
     return {
       dataOfPath: '',
-      colorOfFill: '#000'
+      fillData: '#000',
+      widthData: '24px',
+      heightData: '24px'
     }
   },
   mounted () {
@@ -30,10 +46,16 @@ export default {
   },
   watch: {
     src (val) {
-      this.updateSrcSvgElement(val)
+      this.createSvgElement()
     },
     fill (val) {
-      this.updateColorSvgElement(val)
+      this.updateFillSvgElement(val)
+    },
+    width (val) {
+      this.updateWidthSvgElement(val)
+    },
+    height (val) {
+      this.updateHeightSvgElement(val)
     }
   },
   methods: {
@@ -50,7 +72,9 @@ export default {
             return
           }
           this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
-          this.updateColorSvgElement(this.fill)
+          this.updateFillSvgElement(this.fill)
+          this.updateWidthSvgElement(this.width)
+          this.updateHeightSvgElement(this.height)
         } else {
           console.error(`[ERROR] : vue-svg-filler, Can't load src.`)
         }
@@ -63,8 +87,14 @@ export default {
     updateSrcSvgElement (val) {
       this.dataOfPath = val
     },
-    updateColorSvgElement (val) {
-      this.colorOfFill = val
+    updateFillSvgElement (val) {
+      this.fillData = val
+    },
+    updateWidthSvgElement (val) {
+      this.widthData = val
+    },
+    updateHeightSvgElement (val) {
+      this.heightData = val
     }
   }
 }
