@@ -1,18 +1,7 @@
 <template>
   <div>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-      <defs>
-        <path id="a" d="M6 20v-9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v9h2V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14h1a1 1 0 0 1 0 2H4a2 2 0 0 1-2-2V3a1 1 0 1 1 2 0v17h2zm4 0v-9H8v9h2zm8 0V6h-2v14h2z"/>
-      </defs>
-      <g fill="none" fill-rule="evenodd">
-        <mask id="b" fill="#fff">
-            <use xlink:href="#a"/>
-        </mask>
-        <use fill="#000" fill-rule="nonzero" xlink:href="#a"/>
-        <g fill="#000" mask="url(#b)">
-            <path d="M0 0h24v24H0z"/>
-        </g>
-      </g>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="240" height="240" viewBox="0 0 240 240">
+      <path :d="dataOfPath" :fill="colorOfFill"/>
     </svg>
   </div>
 </template>
@@ -20,7 +9,64 @@
 <script>
 export default {
   name: 'vue-svg-filler',
-  props: {}
+  props: {
+    src: {
+      type: String,
+      required: true
+    },
+    fill: {
+      type: String,
+      default: '#000'
+    }
+  },
+  data () {
+    return {
+      dataOfPath: '',
+      colorOfFill: '#000'
+    }
+  },
+  mounted () {
+    this.createSvgElement()
+  },
+  watch: {
+    src (val) {
+      this.updateSrcSvgElement(val)
+    },
+    fill (val) {
+      this.updateColorSvgElement(val)
+    }
+  },
+  methods: {
+    createSvgElement () {
+      const request = new XMLHttpRequest()
+      request.open('GET', this.src, true)
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 400) {
+          const domParser = new DOMParser()
+          const elementSvg = domParser.parseFromString(request.responseText, 'text/xml')
+          const pathOfSvg = elementSvg.getElementsByTagName('path')[0]
+          if (!pathOfSvg) {
+            console.error(`[ERROR] : vue-svg-filler, No svg path element in your svg file.`)
+            return
+          }
+          this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
+          this.updateColorSvgElement(this.fill)
+        } else {
+          console.error(`[ERROR] : vue-svg-filler, Can't load src.`)
+        }
+      }
+      request.onerror = () => {
+        console.error(`[ERROR] : vue-svg-filler, Can't load src.`)
+      }
+      request.send()
+    },
+    updateSrcSvgElement (val) {
+      this.dataOfPath = val
+    },
+    updateColorSvgElement (val) {
+      this.colorOfFill = val
+    }
+  }
 }
 </script>
 
