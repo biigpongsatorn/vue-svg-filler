@@ -59,7 +59,7 @@ Vue.component('svg-filler', svgFiller)
 </template>
 
 <script>
-import svgFiller from 'vue-svg-filler'
+import SvgFiller from 'vue-svg-filler'
 
 export default {
   name: 'app',
@@ -78,7 +78,7 @@ export default {
     }
   },
   components: {
-    svgFiller
+    SvgFiller
   }
 }
 </script>

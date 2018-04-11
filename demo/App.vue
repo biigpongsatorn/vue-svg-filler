@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import svgFiller from '../src/vue-svg-filler'
+import SvgFiller from '../dist/vue-svg-filler-test.min.js'
 
 export default {
   name: 'app',
@@ -42,7 +42,7 @@ export default {
     }
   },
   components: {
-    svgFiller
+    SvgFiller
   }
 }
 </script>
