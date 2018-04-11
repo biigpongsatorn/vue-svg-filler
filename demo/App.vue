@@ -31,8 +31,8 @@ export default {
     return {
       svgGraph: {
         fill: '#ff0000',
-        width: '100px',
-        height: '100px'
+        width: '150px',
+        height: '150px'
       }
     }
   },
