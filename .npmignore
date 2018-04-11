@@ -1,0 +1,11 @@
+demo/
+node_modules/
+src/
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+bili.config.js
+index.html
+yarn.lock

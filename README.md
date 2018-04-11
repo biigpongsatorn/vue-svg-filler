@@ -1,6 +1,12 @@
+
+<p align="center">
+  <a href="https://npmjs.com/package/vue-svg-filter"><img src="https://img.shields.io/npm/v/vue-svg-filter.svg?style=flat" alt="NPM version"></a>
+  <a href="https://npmjs.com/package/vue-svg-filter"><img src="https://img.shields.io/npm/dm/vue-svg-filter.svg?style=flat" alt="NPM downloads"></a>
+</p>
+
 # vue-svg-filter 🎨
 
-> Vue component for change fill color of svg form your path.
+> Vue component for change fill color and size of svg form your path.
 
 # Install
 
