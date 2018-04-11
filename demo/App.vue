@@ -4,7 +4,7 @@
     <div class="card">
       <svg-filler src="demo/assets/account.svg"/>
     </div>
-    <h1>Chane Fill & Size</h1>
+    <h1>Custom Fill & Size</h1>
     <div class="card">
       <svg-filler src="demo/assets/alert.svg" fill="#f00" width="50px" height="50px"/>
     </div>
