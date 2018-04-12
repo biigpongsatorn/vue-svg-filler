@@ -23,7 +23,11 @@
 </template>
 
 <script>
-import SvgFiller from '../dist/vue-svg-filler-test.min.js'
+// For test development environment.
+import SvgFiller from '../src/vue-svg-filler'
+
+// For test buit file.
+// import SvgFiller from '../dist/vue-svg-filler-test.min.js'
 
 export default {
   name: 'app',
