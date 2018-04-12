@@ -6,7 +6,7 @@
 
 # vue-svg-filler 🎨
 
-> Vue component for change fill color and size of svg form your path.
+> Vue component for change fill color and size of svg from your path.
 
 # Install
 
