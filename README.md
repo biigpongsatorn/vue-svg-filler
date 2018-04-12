@@ -1,7 +1,7 @@
 
 <p align="center">
-  <a href="https://npmjs.com/package/vue-svg-filter"><img src="https://img.shields.io/npm/v/vue-svg-filter.svg?style=flat" alt="NPM version"></a>
-  <a href="https://npmjs.com/package/vue-svg-filter"><img src="https://img.shields.io/npm/dm/vue-svg-filter.svg?style=flat" alt="NPM downloads"></a>
+  <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/v/vue-svg-filler.svg?style=flat" alt="NPM version"></a>
+  <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/dm/vue-svg-filler.svg?style=flat" alt="NPM downloads"></a>
 </p>
 
 # vue-svg-filler 🎨
