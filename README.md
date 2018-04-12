@@ -4,7 +4,7 @@
   <a href="https://npmjs.com/package/vue-svg-filter"><img src="https://img.shields.io/npm/dm/vue-svg-filter.svg?style=flat" alt="NPM downloads"></a>
 </p>
 
-# vue-svg-filter 🎨
+# vue-svg-filler 🎨
 
 > Vue component for change fill color and size of svg form your path.
 
@@ -19,7 +19,14 @@ import svgFiller from 'vue-svg-filler'
 
 Vue.component('svg-filler', svgFiller)
 ```
-## Simple
+🚨 Note : `src` must be full path e.g.  `src/assets/icon.svg` or `static/icon.svg`, Can't use `../` or `./`
+```html
+<svg-filler src="PATH/OF/YOUR/SVG/FILE.svg"/>
+```
+
+# Example
+
+## Default
 <img src="./demo/assets/ex1.png"/>
 
 ```html
@@ -48,7 +55,6 @@ Vue.component('svg-filler', svgFiller)
 <template>
   <div>
     <svg-filler src="demo/assets/graph.svg"
-      style="cursor: pointer;"
       :fill="svgGraph.fill"
       :width="svgGraph.width"
       :height="svgGraph.height"
@@ -89,12 +95,12 @@ export default {
 ## Props
 | Props       | Type          | Default  | Description  |
 | ----------- |:--------------| ---------|--------------|
-| src         | String        | -        | path of your svg file   |
+| src         | String        | -        | Path of your svg file   |
 | width       | String        | 24px     | Width |
 | height      | String        | 24px     | Height |
 | fill        | String        | #000     | Svg color |
 
-### Events
+## Events
 | Name          | Type          | Description  |
 | --------------|:--------------|--------------|
 | [any].native | event: $event  | Listen to any native event, e.g. `click.native`|
