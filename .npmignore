@@ -3,9 +3,12 @@ node_modules/
 src/
 .babelrc
 .editorconfig
-.eslintignore
-.eslintrc.js
 .gitignore
 bili.config.js
 index.html
+npm-debug.log
+webpack.config.js
+
+.eslintignore
+.eslintrc.js
 yarn.lock
