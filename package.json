@@ -1,10 +1,10 @@
 {
   "name": "vue-svg-filler",
   "description": "Vue component for change fill color of svg form your path.",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "author": "Pongsatorn Nitithammawoot <biig_pongsatorn@hotmail.com>",
   "license": "MIT",
-  "main": "dist/vue-svg-filter.min.js",
+  "main": "dist/vue-svg-filler.min.js",
   "files": [
     "dist"
   ],

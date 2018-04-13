@@ -60,7 +60,7 @@ export default {
   methods: {
     createSvgElement () {
       const dir = window.location.origin
-      const source = this.src.substring(0, 1) === '/' ? `${dir}${this.src}` : `${dir}/${this.src}`
+      const source = this.src.substring(0, 1) === '/' ? `${dir}${this.src}/3` : `${dir}/${this.src}/3`
       const request = new XMLHttpRequest()
       request.open('GET', source, true)
       request.onload = () => {
@@ -69,7 +69,7 @@ export default {
           const elementSvg = domParser.parseFromString(request.responseText, 'text/xml')
           const pathOfSvg = elementSvg.getElementsByTagName('path')[0]
           if (!pathOfSvg) {
-            console.error(`[ERROR] : vue-svg-filler, No svg path element in your svg file. Source : ${source}`)
+            console.error(`[ERROR] : vue-svg-filler, No svg path element in your svg file.\nSource : ${source}`)
             return
           }
           this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
@@ -77,11 +77,11 @@ export default {
           this.updateWidthSvgElement(this.width)
           this.updateHeightSvgElement(this.height)
         } else {
-          console.error(`[ERROR] : vue-svg-filler, Can't load src. Source : ${source}`)
+          console.error(`[ERROR] : vue-svg-filler, Can't load src.\nSource : ${source}`)
         }
       }
       request.onerror = () => {
-        console.error(`[ERROR] : vue-svg-filler, Can't load src. Source : ${source}`)
+        console.error(`[ERROR] : vue-svg-filler, Can't load src.\nSource : ${source}`)
       }
       request.send()
     },
