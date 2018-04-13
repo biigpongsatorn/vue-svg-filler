@@ -1,11 +1,6 @@
 <template>
   <div>
-    <svg ref="svg-template"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      version="1.1"
-      viewBox="0 0 24 24"
-      :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }">
+    <svg version="1.1" viewBox="0 0 24 24" :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }">
       <path :d="dataOfPath"/>
     </svg>
   </div>
@@ -15,7 +10,7 @@
 export default {
   name: 'vue-svg-filler',
   props: {
-    src: {
+    path: {
       type: String,
       required: true
     },
@@ -44,7 +39,7 @@ export default {
     this.createSvgElement()
   },
   watch: {
-    src (val) {
+    path (val) {
       this.createSvgElement()
     },
     fill (val) {
@@ -60,7 +55,7 @@ export default {
   methods: {
     createSvgElement () {
       const dir = window.location.origin
-      const source = this.src.substring(0, 1) === '/' ? `${dir}${this.src}` : `${dir}/${this.src}`
+      const source = this.path.substring(0, 1) === '/' ? `${dir}${this.path}` : `${dir}/${this.path}`
       const request = new XMLHttpRequest()
       request.open('GET', source, true)
       request.onload = () => {
@@ -69,7 +64,7 @@ export default {
           const elementSvg = domParser.parseFromString(request.responseText, 'text/xml')
           const pathOfSvg = elementSvg.getElementsByTagName('path')[0]
           if (!pathOfSvg) {
-            console.error(`[ERROR] : vue-svg-filler, No svg path element in your svg file.\nSource : ${source}`)
+            console.error(`[ERROR] : vue-svg-filler, No svg path element in your svg file.\nPath : ${source}`)
             return
           }
           this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
@@ -77,11 +72,11 @@ export default {
           this.updateWidthSvgElement(this.width)
           this.updateHeightSvgElement(this.height)
         } else {
-          console.error(`[ERROR] : vue-svg-filler, Can't load src.\nSource : ${source}`)
+          console.error(`[ERROR] : vue-svg-filler, Can't load element from this path.\nPath : ${source}`)
         }
       }
       request.onerror = () => {
-        console.error(`[ERROR] : vue-svg-filler, Can't load src.\nSource : ${source}`)
+        console.error(`[ERROR] : vue-svg-filler, Can't load element from this path.\nPath : ${source}`)
       }
       request.send()
     },

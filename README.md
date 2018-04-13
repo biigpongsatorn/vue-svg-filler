@@ -6,7 +6,7 @@
 
 # vue-svg-filler 🎨
 
-> Vue component for change fill color and size of svg from your path.
+> Vue component for custom your svg file from `static` folder.
 
 # Install
 
@@ -15,37 +15,48 @@ npm install vue-svg-filler --save
 ```
 # Usage
 ```javascript
-import svgFiller from 'vue-svg-filler'
+import SvgFiller from 'vue-svg-filler'
 
-Vue.component('svg-filler', svgFiller)
+Vue.component('svg-filler', SvgFiller)
 ```
-🚨 Note : `src` must be full path e.g.  `src/assets/icon.svg` or `static/icon.svg`, Can't use `../` or `./`
+## 🚨 Please note that ! 
+
+1. Your `svg` file must only contain in `/static` directory
+2. `path` must be full path e.g. `static/icon.svg` or `/static/icon/file.svg` , Can't use `../` or `./`
+
 ```html
-<svg-filler src="PATH/OF/YOUR/SVG/FILE.svg"/>
+<svg-filler path="static/PATH/OF/YOUR/FILE.svg"/>
+```
+### Directory structure
+
+```
+my-project
+├── ...
+│
+├── src
+├── static
+│   ├── icon
+│   │    └── graph.svg
+│   ├── account.svg
+│   └── alert.svg
+│
+└── ...
 ```
 
 # Example
 
-## Default
+## Simple usage
 <img src="./demo/assets/ex1.png"/>
 
 ```html
-<template>
-  <div>
-    <svg-filler src="demo/assets/account.svg"/>
-  </div>
-</template>
+<svg-filler path="static/account.svg"/>
 ```
 
 ## Custom fill & size
 <img src="./demo/assets/ex2.png"/>
 
 ```html
-<template>
-  <div>
-    <svg-filler src="demo/assets/alert.svg" fill="#f00" width="50px" height="50px"/>
-  </div>
-</template>
+<svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
 ```
 
 ## Event @click.native
@@ -54,7 +65,7 @@ Vue.component('svg-filler', svgFiller)
 ```html
 <template>
   <div>
-    <svg-filler src="demo/assets/graph.svg"
+    <svg-filler path="static/graph.svg"
       :fill="svgGraph.fill"
       :width="svgGraph.width"
       :height="svgGraph.height"
@@ -95,7 +106,7 @@ export default {
 ## Props
 | Props       | Type          | Default  | Description  |
 | ----------- |:--------------| ---------|--------------|
-| src         | String        | -        | Path of your svg file   |
+| path         | String        | -        | Path of your svg file in `/static`  |
 | width       | String        | 24px     | Width |
 | height      | String        | 24px     | Height |
 | fill        | String        | #000     | Svg color |

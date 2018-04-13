@@ -2,15 +2,15 @@
   <div id="app">
     <h1>Default</h1>
     <div class="card">
-      <svg-filler src="demo/assets/account.svg"/>
+      <svg-filler path="static/account.svg"/>
     </div>
     <h1>Custom Fill & Size</h1>
     <div class="card">
-      <svg-filler src="demo/assets/alert.svg" fill="#f00" width="50px" height="50px"/>
+      <svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
     </div>
     <h1>Event @click.native</h1>
     <div class="card">
-      <svg-filler src="demo/assets/graph.svg"
+      <svg-filler path="static/icon/graph.svg"
         style="cursor: pointer;"
         :fill="svgGraph.fill"
         :width="svgGraph.width"
@@ -24,10 +24,10 @@
 
 <script>
 // For test development environment.
-import SvgFiller from '../src/vue-svg-filler'
+// import SvgFiller from '../src/vue-svg-filler'
 
 // For test buit file.
-// import SvgFiller from '../dist/vue-svg-filler-test.min.js'
+import SvgFiller from '../dist/vue-svg-filler.min.js'
 
 export default {
   name: 'app',
