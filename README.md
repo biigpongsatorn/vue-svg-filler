@@ -69,7 +69,7 @@ my-project
       :fill="svgGraph.fill"
       :width="svgGraph.width"
       :height="svgGraph.height"
-      @click.native="randomColor()"/>
+      @click.native="svgGraph.fill = randomColor()"/>
     <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
     <span>Click icon for change color</span>
   </div>
@@ -91,7 +91,50 @@ export default {
   },
   methods: {
     randomColor () {
-      this.svgGraph.fill = `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
+      return `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
+    }
+  },
+  components: {
+    SvgFiller
+  }
+}
+</script>
+```
+
+## Hover
+<img src="./demo/assets/ex4.png"/>
+
+```html
+<template>
+  <div>
+    <svg-filler path="static/icon/bell-ring.svg"
+      style="cursor: pointer;"
+      :fill="svgBell.fill"
+      :width="svgBell.width"
+      :height="svgBell.height"
+      @mouseover.native="svgBell.fill = randomColor()"/>
+    <h2 :style="{ 'color': svgBell.fill }">{{ svgBell.fill }}</h2>
+    <span>Hover me !</span>
+  </div>
+</template>
+
+<script>
+import SvgFiller from 'vue-svg-filler'
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      svgBell: {
+        fill: '#6777eb',
+        width: '150px',
+        height: '150px'
+      }
+    }
+  },
+  methods: {
+    randomColor () {
+      return `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
     }
   },
   components: {

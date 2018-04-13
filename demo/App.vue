@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Default</h1>
+    <h1>Simple</h1>
     <div class="card">
       <svg-filler path="static/account.svg"/>
     </div>
@@ -8,16 +8,27 @@
     <div class="card">
       <svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
     </div>
-    <h1>Event @click.native</h1>
+    <h1>@click.native</h1>
     <div class="card">
       <svg-filler path="static/icon/graph.svg"
         style="cursor: pointer;"
         :fill="svgGraph.fill"
         :width="svgGraph.width"
         :height="svgGraph.height"
-        @click.native="randomColor()"/>
+        @click.native="svgGraph.fill = randomColor()"/>
       <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
       <span>Click icon for change color</span>
+    </div>
+    <h1>@mouseover.native</h1>
+    <div class="card">
+      <svg-filler path="static/icon/bell-ring.svg"
+        style="cursor: pointer;"
+        :fill="svgBell.fill"
+        :width="svgBell.width"
+        :height="svgBell.height"
+        @mouseover.native="svgBell.fill = randomColor()"/>
+      <h2 :style="{ 'color': svgBell.fill }">{{ svgBell.fill }}</h2>
+      <span>Hover me !</span>
     </div>
   </div>
 </template>
@@ -34,7 +45,12 @@ export default {
   data () {
     return {
       svgGraph: {
-        fill: '#c2f91d',
+        fill: `#${(Math.random()*0xFFFFFF<<0).toString(16)}`,
+        width: '150px',
+        height: '150px'
+      },
+      svgBell: {
+        fill: `#${(Math.random()*0xFFFFFF<<0).toString(16)}`,
         width: '150px',
         height: '150px'
       }
@@ -42,7 +58,7 @@ export default {
   },
   methods: {
     randomColor () {
-      this.svgGraph.fill = `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
+      return `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
     }
   },
   components: {
