@@ -46,21 +46,21 @@ my-project
 # Example
 
 ## Simple usage
-<img src="static/example/ex1.png"/>
+<img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex1.png"/>
 
 ```html
 <svg-filler path="static/account.svg"/>
 ```
 
 ## Custom fill & size
-<img src="static/example/ex2.png"/>
+<img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex2.png"/>
 
 ```html
 <svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
 ```
 
 ## Event @click.native
-<img src="static/example/ex3.png"/>
+<img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex3.png"/>
 
 ```html
 <template>
@@ -102,7 +102,7 @@ export default {
 ```
 
 ## Hover
-<img src="static/example/ex4.png"/>
+<img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex4.png"/>
 
 ```html
 <template>
