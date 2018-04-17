@@ -1,7 +1,9 @@
 <template>
-  <svg version="1.1" viewBox="0 0 24 24" :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }">
-    <path :d="dataOfPath"/>
-  </svg>
+  <div id="vue-svg-filler" >
+    <svg version="1.1" viewBox="0 0 24 24" :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }">
+      <path :d="dataOfPath"/>
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -93,3 +95,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#vue-svg-filler {
+  display: inline-block;
+}
+</style>
