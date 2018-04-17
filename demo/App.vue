@@ -2,11 +2,7 @@
   <div id="app">
     <h1>Simple</h1>
     <div class="card">
-      <div style="float: right;border: 1px solid red;">
-        <svg-filler path="static/account.svg"/>
-        <svg-filler path="static/account.svg"/>
-        <svg-filler path="static/account.svg"/>
-      </div>
+      <svg-filler path="static/account.svg"/>
     </div>
     <h1>Custom Fill & Size</h1>
     <div class="card">
