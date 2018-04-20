@@ -1,5 +1,10 @@
 <template>
-  <svg id="vue-svg-filler" version="1.1" viewBox="0 0 24 24" :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }">
+  <svg id="vue-svg-filler"
+    version="1.1"
+    viewBox="0 0 24 24"
+    :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }"
+    @mouseover="hoverColor ? updateFillSvgElement(hoverColor) : null"
+    @mouseleave="hoverColor ? updateFillSvgElement(fill) : null">
     <path :d="dataOfPath"/>
   </svg>
 </template>
@@ -23,6 +28,9 @@ export default {
     height: {
       type: String,
       default: '24px'
+    },
+    hoverColor: {
+      type: String
     }
   },
   data () {
