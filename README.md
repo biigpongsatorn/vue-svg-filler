@@ -108,13 +108,11 @@ export default {
 <template>
   <div>
     <svg-filler path="static/icon/bell-ring.svg"
-      style="cursor: pointer;"
+      hover-color="#000"
       :fill="svgBell.fill"
       :width="svgBell.width"
-      :height="svgBell.height"
-      @mouseover.native="svgBell.fill = randomColor()"/>
-    <h2 :style="{ 'color': svgBell.fill }">{{ svgBell.fill }}</h2>
-    <span>Hover me !</span>
+      :height="svgBell.height"/>
+    <div>Hover me !</div>
   </div>
 </template>
 
@@ -132,11 +130,6 @@ export default {
       }
     }
   },
-  methods: {
-    randomColor () {
-      return `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
-    }
-  },
   components: {
     SvgFiller
   }
@@ -152,7 +145,8 @@ export default {
 | path         | String        | -        | Path of your svg file in `/static`  |
 | width       | String        | 24px     | Width |
 | height      | String        | 24px     | Height |
-| fill        | String        | #000     | Svg color |
+| fill        | String        | #000     | Fill color |
+| hover-color        | String        | -     | Fill color when hover on icon |
 
 ## Events
 | Name          | Type          | Description  |
