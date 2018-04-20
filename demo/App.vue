@@ -19,16 +19,14 @@
       <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
       <span>Click icon for change color</span>
     </div>
-    <h1>@mouseover.native</h1>
+    <h1>Hover</h1>
     <div class="card">
       <svg-filler path="static/icon/bell-ring.svg"
-        style="cursor: pointer;"
+        hover-color="#000"
         :fill="svgBell.fill"
         :width="svgBell.width"
-        :height="svgBell.height"
-        @mouseover.native="svgBell.fill = randomColor()"/>
-      <h2 :style="{ 'color': svgBell.fill }">{{ svgBell.fill }}</h2>
-      <span>Hover me !</span>
+        :height="svgBell.height"/>
+      <div>Hover me !</div>
     </div>
   </div>
 </template>
