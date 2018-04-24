@@ -8,6 +8,10 @@
 
 > Vue component for custom your svg file from `static` folder.
 
+# Demo
+
+[Vue SVG Filler Demo Page](https://vue-svg-filler.netlify.com/)
+
 # Install
 
 ```sh
