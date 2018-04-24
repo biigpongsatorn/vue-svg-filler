@@ -31,7 +31,7 @@ Vue.component('svg-filler', SvgFiller)
 ```html
 <svg-filler path="static/PATH/OF/YOUR/FILE.svg"/>
 ```
-### Example Directory structure
+### Example directory structure
 
 ```
 my-project
