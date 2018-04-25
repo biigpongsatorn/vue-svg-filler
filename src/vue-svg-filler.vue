@@ -20,13 +20,16 @@ export default {
       required: true
     },
     fill: {
-      type: String
+      type: String,
+      default: '#000'
     },
     width: {
-      type: String
+      type: String,
+      default: '24px'
     },
     height: {
-      type: String
+      type: String,
+      default: '24px'
     },
     hoverColor: {
       type: String
@@ -35,9 +38,9 @@ export default {
   data () {
     return {
       dataOfPath: '',
-      fillData: '',
-      widthData: '',
-      heightData: '',
+      fillData: '#000',
+      widthData: '24px',
+      heightData: '24px',
       viewBox: '0 0 24 24'
     }
   },
@@ -74,7 +77,6 @@ export default {
             _errorLog(`No svg path element in your svg file.\nPath : ${source}`)
             return
           }
-          console.log(tagSvg)
           this.updateViewBox(tagSvg.getAttribute('viewBox'))
           this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
           this.updateFillSvgElement(this.fill)
