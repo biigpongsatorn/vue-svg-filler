@@ -2,16 +2,15 @@
   <div id="app">
     <h1>Simple</h1>
     <div class="card">
-      <svg-filler path="static/account.svg"/>
+      <svg-filler path="static/github.svg"/>
     </div>
     <h1>Custom Fill & Size</h1>
     <div class="card">
-      <svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
+      <svg-filler path="static/icon/bitcoin.svg" fill="#FF9900" width="50px" height="50px"/>
     </div>
     <h1>Click</h1>
     <div class="card">
-      <svg-filler path="static/icon/graph.svg"
-        style="cursor: pointer;"
+      <svg-filler path="static/icon/palette.svg"
         :fill="svgGraph.fill"
         :width="svgGraph.width"
         :height="svgGraph.height"
@@ -21,7 +20,7 @@
     </div>
     <h1>Hover</h1>
     <div class="card">
-      <svg-filler path="static/icon/bell-ring.svg"
+      <svg-filler path="static/vuejs.svg"
         :hover-color="svgBell.hoverColor"
         :fill="svgBell.fill"
         :width="svgBell.width"
@@ -48,10 +47,10 @@ export default {
         height: '150px'
       },
       svgBell: {
-        fill: this.randomColor(),
+        fill: '#42b883',
         width: '150px',
         height: '150px',
-        hoverColor: this.randomColor()
+        hoverColor: '#35495e'
       }
     }
   },
@@ -78,6 +77,7 @@ h1 {
   margin: 0 auto;
 }
 .card {
+  cursor: pointer;
   float: left;
   width: 100%;
   padding: 25px;
