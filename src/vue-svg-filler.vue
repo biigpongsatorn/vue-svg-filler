@@ -1,14 +1,14 @@
 <template>
-    <svg id="vue-svg-filler"
-    :viewBox="viewBox"
-    :width="widthData"
-    :height="heightData"
-    :fill="fillData"
-    @mouseover="hoverColor ? updateFillSvgElement(hoverColor) : null"
-    @mouseleave="hoverColor ? updateFillSvgElement(fill) : null"
-    @click="$emit('click')">
-      <path :d="dataOfPath"/>
-    </svg>
+  <svg id="vue-svg-filler"
+  :viewBox="viewBox"
+  :width="widthData"
+  :height="heightData"
+  :fill="fillData"
+  @mouseover="hoverColor ? updateFillSvgElement(hoverColor) : null"
+  @mouseleave="hoverColor ? updateFillSvgElement(fill) : null"
+  @click="$emit('click')">
+    <path :d="dataOfPath"/>
+  </svg>
 </template>
 
 <script>

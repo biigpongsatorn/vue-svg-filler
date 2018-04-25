@@ -53,14 +53,14 @@ my-project
 <img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex1.png"/>
 
 ```html
-<svg-filler path="static/account.svg"/>
+<svg-filler path="static/github.svg"/>
 ```
 
 ## Custom fill & size
 <img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex2.png"/>
 
 ```html
-<svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
+<svg-filler path="static/icon/bitcoin.svg" fill="#FF9900" width="50px" height="50px"/>
 ```
 
 ## Click
@@ -69,12 +69,12 @@ my-project
 ```html
 <template>
   <div>
-    <svg-filler path="static/graph.svg"
-      :fill="svgGraph.fill"
-      :width="svgGraph.width"
-      :height="svgGraph.height"
-      @click="svgGraph.fill = randomColor()"/>
-    <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
+    <svg-filler path="static/icon/palette.svg"
+      :fill="svgPalette.fill"
+      :width="svgPalette.width"
+      :height="svgPalette.height"
+      @click="svgPalette.fill = randomColor()"/>
+    <h2 :style="{ 'color': svgPalette.fill }">{{ svgPalette.fill }}</h2>
     <span>Click icon for change color</span>
   </div>
 </template>
@@ -86,7 +86,7 @@ export default {
   name: 'app',
   data () {
     return {
-      svgGraph: {
+      svgPalette: {
         fill: '#c2f91d',
         width: '150px',
         height: '150px'
@@ -111,11 +111,11 @@ export default {
 ```html
 <template>
   <div>
-    <svg-filler path="static/icon/bell-ring.svg"
-      :hover-color="svgBell.hoverColor"
-      :fill="svgBell.fill"
-      :width="svgBell.width"
-      :height="svgBell.height"/>
+    <svg-filler path="static/vuejs.svg"
+      :hover-color="svgVuejs.hoverColor"
+      :fill="svgVuejs.fill"
+      :width="svgVuejs.width"
+      :height="svgVuejs.height"/>
     <div>Hover me !</div>
   </div>
 </template>
@@ -127,7 +127,7 @@ export default {
   name: 'app',
   data () {
     return {
-      svgBell: {
+      svgVuejs: {
         fill: this.randomColor(),
         width: '150px',
         height: '150px',

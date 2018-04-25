@@ -11,20 +11,20 @@
     <h1>Click</h1>
     <div class="card">
       <svg-filler path="static/icon/palette.svg"
-        :fill="svgGraph.fill"
-        :width="svgGraph.width"
-        :height="svgGraph.height"
-        @click="svgGraph.fill = randomColor()"/>
-      <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
+        :fill="svgPalette.fill"
+        :width="svgPalette.width"
+        :height="svgPalette.height"
+        @click="svgPalette.fill = randomColor()"/>
+      <h2 :style="{ 'color': svgPalette.fill }">{{ svgPalette.fill }}</h2>
       <span>Click icon for change color</span>
     </div>
     <h1>Hover</h1>
     <div class="card">
       <svg-filler path="static/vuejs.svg"
-        :hover-color="svgBell.hoverColor"
-        :fill="svgBell.fill"
-        :width="svgBell.width"
-        :height="svgBell.height"/>
+        :hover-color="svgVuejs.hoverColor"
+        :fill="svgVuejs.fill"
+        :width="svgVuejs.width"
+        :height="svgVuejs.height"/>
       <div>Hover me !</div>
     </div>
   </div>
@@ -41,12 +41,12 @@ export default {
   name: 'app',
   data () {
     return {
-      svgGraph: {
+      svgPalette: {
         fill: this.randomColor(),
         width: '150px',
         height: '150px'
       },
-      svgBell: {
+      svgVuejs: {
         fill: '#42b883',
         width: '150px',
         height: '150px',
