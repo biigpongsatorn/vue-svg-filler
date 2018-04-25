@@ -63,7 +63,7 @@ my-project
 <svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
 ```
 
-## Event @click.native
+## Click
 <img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex3.png"/>
 
 ```html
@@ -73,7 +73,7 @@ my-project
       :fill="svgGraph.fill"
       :width="svgGraph.width"
       :height="svgGraph.height"
-      @click.native="svgGraph.fill = randomColor()"/>
+      @click="svgGraph.fill = randomColor()"/>
     <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
     <span>Click icon for change color</span>
   </div>
@@ -112,7 +112,7 @@ export default {
 <template>
   <div>
     <svg-filler path="static/icon/bell-ring.svg"
-      hover-color="#000"
+      :hover-color="svgBell.hoverColor"
       :fill="svgBell.fill"
       :width="svgBell.width"
       :height="svgBell.height"/>
@@ -128,9 +128,10 @@ export default {
   data () {
     return {
       svgBell: {
-        fill: '#6777eb',
+        fill: this.randomColor(),
         width: '150px',
-        height: '150px'
+        height: '150px',
+        hoverColor: this.randomColor()
       }
     }
   },
@@ -151,6 +152,7 @@ export default {
 | height      | String        | 24px     | Height |
 | fill        | String        | #000     | Fill color |
 | hover-color        | String        | -     | Fill color when hover on icon |
+| click        | Function        | -     | Triggers when click |
 
 ## Events
 | Name          | Type          | Description  |
