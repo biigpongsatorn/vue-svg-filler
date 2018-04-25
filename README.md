@@ -157,7 +157,7 @@ export default {
 ## Events
 | Name          | Type          | Description  |
 | --------------|:--------------|--------------|
-| [any].native | event: $event  | Listen to any native event, e.g. `click.native`|
+| [any].native | event: $event  | Listen to any native event, e.g. `mouseover.native`|
 
 # Run demo in local.
 
