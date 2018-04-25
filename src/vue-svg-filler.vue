@@ -4,7 +4,8 @@
     viewBox="0 0 24 24"
     :style="{ 'fill': fillData, 'width': widthData, 'height': heightData }"
     @mouseover="hoverColor ? updateFillSvgElement(hoverColor) : null"
-    @mouseleave="hoverColor ? updateFillSvgElement(fill) : null">
+    @mouseleave="hoverColor ? updateFillSvgElement(fill) : null"
+    @click="$emit('click')">
     <path :d="dataOfPath"/>
   </svg>
 </template>
@@ -70,7 +71,7 @@ export default {
           const elementSvg = domParser.parseFromString(request.responseText, 'text/xml')
           const pathOfSvg = elementSvg.getElementsByTagName('path')[0]
           if (!pathOfSvg) {
-            console.error(`[ERROR] : vue-svg-filler, No svg path element in your svg file.\nPath : ${source}`)
+            _errorLog(`No svg path element in your svg file.\nPath : ${source}`)
             return
           }
           this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
@@ -78,16 +79,16 @@ export default {
           this.updateWidthSvgElement(this.width)
           this.updateHeightSvgElement(this.height)
         } else {
-          console.error(`[ERROR] : vue-svg-filler, Can't load element from this path.\nPath : ${source}`)
+          _errorLog(`Can't load element from this path.\nPath : ${source}`)
         }
       }
       request.onerror = () => {
-        console.error(`[ERROR] : vue-svg-filler, Can't load element from this path.\nPath : ${source}`)
+        _errorLog(`Can't load element from this path.\nPath : ${source}`)
       }
       request.send()
     },
     updateSrcSvgElement (val) {
-      this.dataOfPath = val
+      val ? this.dataOfPath = val : _errorLog(`Can't get data (d) attribute from your SVG file.`)
     },
     updateFillSvgElement (val) {
       this.fillData = val
@@ -97,6 +98,9 @@ export default {
     },
     updateHeightSvgElement (val) {
       this.heightData = val
+    },
+    _errorLog (log) {
+      console.error(`[ERROR] : vue-svg-filler, ${log}`)
     }
   }
 }

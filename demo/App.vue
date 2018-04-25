@@ -8,21 +8,21 @@
     <div class="card">
       <svg-filler path="static/alert.svg" fill="#f00" width="50px" height="50px"/>
     </div>
-    <h1>@click.native</h1>
+    <h1>Click</h1>
     <div class="card">
       <svg-filler path="static/icon/graph.svg"
         style="cursor: pointer;"
         :fill="svgGraph.fill"
         :width="svgGraph.width"
         :height="svgGraph.height"
-        @click.native="svgGraph.fill = randomColor()"/>
+        @click="svgGraph.fill = randomColor()"/>
       <h2 :style="{ 'color': svgGraph.fill }">{{ svgGraph.fill }}</h2>
       <span>Click icon for change color</span>
     </div>
     <h1>Hover</h1>
     <div class="card">
       <svg-filler path="static/icon/bell-ring.svg"
-        hover-color="#000"
+        :hover-color="svgBell.hoverColor"
         :fill="svgBell.fill"
         :width="svgBell.width"
         :height="svgBell.height"/>
@@ -43,14 +43,15 @@ export default {
   data () {
     return {
       svgGraph: {
-        fill: `#${(Math.random()*0xFFFFFF<<0).toString(16)}`,
+        fill: this.randomColor(),
         width: '150px',
         height: '150px'
       },
       svgBell: {
-        fill: `#${(Math.random()*0xFFFFFF<<0).toString(16)}`,
+        fill: this.randomColor(),
         width: '150px',
-        height: '150px'
+        height: '150px',
+        hoverColor: this.randomColor()
       }
     }
   },
