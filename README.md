@@ -4,9 +4,9 @@
   <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/dm/vue-svg-filler.svg?style=flat" alt="NPM downloads"></a>
 </p>
 
-# vue-svg-filler 🎨
+# vue-svg-filler 🖍 
 
-> Vue component for custom your svg file from `static` folder.
+> 🎨 Vue component for customize your svg file.
 
 # Demo
 
