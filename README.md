@@ -1,12 +1,13 @@
 
-<p align="center">
+<p>
   <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/v/vue-svg-filler.svg?style=flat" alt="NPM version"></a>
   <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/dm/vue-svg-filler.svg?style=flat" alt="NPM downloads"></a>
+  <a href="https://www.npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/l/vue-svg-filler.svg?style=flat" alt="License"></a>
 </p>
 
-# vue-svg-filler 🖍 🎨 
+# Vue SVG Filler 🖍 🎨 
 
-> Vue component for customize your svg file.
+Vue component for customize your svg file.
 
 # Demo
 
