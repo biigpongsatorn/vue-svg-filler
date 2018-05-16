@@ -3,6 +3,7 @@
   <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/v/vue-svg-filler.svg?style=flat" alt="NPM version"></a>
   <a href="https://npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/dm/vue-svg-filler.svg?style=flat" alt="NPM downloads"></a>
   <a href="https://www.npmjs.com/package/vue-svg-filler"><img src="https://img.shields.io/npm/l/vue-svg-filler.svg?style=flat" alt="License"></a>
+  <a href="https://www.npmjs.com/package/vue-svg-filler"><img src="https://travis-ci.org/biigpongsatorn/biigpongsatorn.github.io.svg?branch=dev" alt="Build Status"></a>
 </p>
 
 # Vue SVG Filler 🖍 🎨 
@@ -178,7 +179,7 @@ export default {
 # Support
 
 ```
-If you feel like this project, You can support me with starring ⭐ this project.
+If you like this project, You can support me with starring ⭐ this repository.
 ```
 
 # License
