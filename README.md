@@ -9,14 +9,18 @@
 
 Vue component for customize your svg file.
 
-# Demo
+# Demo Page
 
-[Vue SVG Filler Demo Page](https://vue-svg-filler.netlify.com/)
+[>>> Demo Page <<<](https://biigpongsatorn.github.io/#/vue-svg-filler)
 
 # Install
 
 ```sh
 npm install vue-svg-filler --save
+```
+or
+```sh
+yarn add vue-svg-filler
 ```
 # Usage
 ```javascript
@@ -41,9 +45,10 @@ my-project
 ├── src
 ├── static
 │   ├── icon
-│   │    └── graph.svg
-│   ├── account.svg
-│   └── alert.svg
+│   │    └── bitcoin.svg
+│   │    └── palette.svg
+│   ├── github.svg
+│   └── vuejs.svg
 │
 └── ...
 ```
@@ -153,27 +158,31 @@ export default {
 | height      | String        | 24px     | Height |
 | fill        | String        | #000     | Fill color |
 | hover-color        | String        | -     | Fill color when hover on icon |
-| click        | Function        | -     | Triggers when click |
 
 ## Events
-| Name          | Type          | Description  |
-| --------------|:--------------|--------------|
-| [any].native | event: $event  | Listen to any native event, e.g. `click.native`|
+| Name          | Type          | Default  | Description  |
+| --------------|:--------------|--------------|--------------|
+| click        | Function       | -     | Triggers when click |
+| [any].native | event: $event  | -     | Listen to any native event, e.g. `mouseover.native`|
 
-# Run demo in local.
+# Contributing
+1. Fork this repository.
+2. Create new branch with feature name.
+3. Run `npm install` and `npm run dev`.
+4. Create your feature.
+5. Commit and set commit message with feature name.
+6. Push your code to your fork repository.
+7. Create pull request. 🙂
 
-``` bash
-# install dependencies
-npm install
+# Support
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
 ```
+If you feel like this project, You can support me with starring ⭐ this project.
+```
+
 # License
 
 [MIT](LICENSE)
 
-Developed with ❤️ and ☕️
+Developed with ❤️ and ☕️ 
+
