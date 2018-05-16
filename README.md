@@ -47,6 +47,7 @@ my-project
 │   ├── icon
 │   │    └── bitcoin.svg
 │   │    └── palette.svg
+│   │    └── frog.svg
 │   ├── github.svg
 │   └── vuejs.svg
 │
