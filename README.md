@@ -12,7 +12,7 @@ Vue component for customize your svg file.
 
 # Demo Page
 
-[>>> Demo Page <<<](https://biigpongsatorn.github.io/#/vue-svg-filler)
+- [Documentation & Demo Page](https://biigpongsatorn.github.io/#/vue-svg-filler)
 
 # Install
 
