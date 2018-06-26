@@ -1,5 +1,5 @@
 <template>
-  <svg id="vue-svg-filler"
+  <svg class="v-svg-filler"
   :viewBox="viewBox"
   :width="widthData"
   :height="heightData"
@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style scoped>
-#vue-svg-filler {
+.v-svg-filler {
   vertical-align: middle;
 }
 </style>
