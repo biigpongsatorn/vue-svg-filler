@@ -1,11 +1,12 @@
 <template>
   <svg class="v-svg-filler"
   :viewBox="viewBox"
-  :width="widthData"
-  :height="heightData"
-  :fill="fillData"
-  @mouseover="hoverColor ? updateFillSvgElement(hoverColor) : null"
-  @mouseleave="hoverColor ? updateFillSvgElement(fill) : null"
+  :width="width"
+  :height="height"
+  :fill="fillColor"
+  :stroke="strokeColor"
+  @mouseover="mouseHoverEvent('over')"
+  @mouseleave="mouseHoverEvent('leave')"
   @click="$emit('click')">
     <path :d="dataOfPath"/>
   </svg>
@@ -33,32 +34,32 @@ export default {
     },
     hoverColor: {
       type: String
+    },
+    stroke: {
+      type: String,
+      default: 'none'
+    },
+    hoverStrokeColor: {
+      type: String
     }
   },
   data () {
     return {
+      viewBox: '0 0 24 24',
       dataOfPath: '',
-      fillData: '#000',
-      widthData: '24px',
-      heightData: '24px',
-      viewBox: '0 0 24 24'
+      fillColor: '#000',
+      strokeColor: 'none'
     }
   },
   mounted () {
     this.createSvgElement()
   },
   watch: {
-    path (val) {
-      this.createSvgElement()
-    },
     fill (val) {
-      this.updateFillSvgElement(val)
+      this.updateFillColor(val)
     },
-    width (val) {
-      this.updateWidthSvgElement(val)
-    },
-    height (val) {
-      this.updateHeightSvgElement(val)
+    stroke (val) {
+      this.updateStrokeColor(val)
     }
   },
   methods: {
@@ -77,11 +78,10 @@ export default {
             _errorLog(`No svg path element in your svg file.\nPath : ${source}`)
             return
           }
-          this.updateViewBox(tagSvg.getAttribute('viewBox'))
+          this.viewBox = tagSvg.getAttribute('viewBox')
           this.updateSrcSvgElement(pathOfSvg.getAttribute('d'))
-          this.updateFillSvgElement(this.fill)
-          this.updateWidthSvgElement(this.width)
-          this.updateHeightSvgElement(this.height)
+          this.updateFillColor(this.fill)
+          this.updateStrokeColor(this.stroke)
         } else {
           _errorLog(`Can't load element from this path.\nPath : ${source}`)
         }
@@ -94,17 +94,20 @@ export default {
     updateSrcSvgElement (val) {
       val ? this.dataOfPath = val : _errorLog(`Can't get attribute 'd' from your SVG file.`)
     },
-    updateFillSvgElement (val) {
-      this.fillData = val
+    updateFillColor (val) {
+      this.fillColor = val
     },
-    updateWidthSvgElement (val) {
-      this.widthData = val
+    updateStrokeColor (val) {
+      this.strokeColor = val
     },
-    updateHeightSvgElement (val) {
-      this.heightData = val
-    },
-    updateViewBox (val) {
-      if (val) this.viewBox = val
+    mouseHoverEvent (event) {
+      if (event === 'over') {
+        if (this.hoverColor) this.updateFillColor(this.hoverColor)
+        if (this.hoverStrokeColor) this.updateStrokeColor(this.hoverStrokeColor)
+      } else {
+        if (this.hoverColor) this.updateFillColor(this.fill)
+        if (this.hoverStrokeColor) this.updateStrokeColor(this.stroke)
+      }
     },
     _errorLog (log) {
       console.error(`[ERROR] : vue-svg-filler, ${log}`)
