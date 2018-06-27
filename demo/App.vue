@@ -12,8 +12,8 @@
     <div class="card">
       <svg-filler path="static/icon/palette.svg"
         :fill="svgPalette.fill"
-        :stroke="'#f00'"
-        :hover-stroke-color="'#0f0'"
+        stroke="#f00"
+        hover-stroke-color="#0f0"
         :width="svgPalette.width"
         :height="svgPalette.height"
         @click="svgPalette.fill = randomColor()"/>
