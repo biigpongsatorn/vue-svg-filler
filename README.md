@@ -159,7 +159,9 @@ export default {
 | width       | String        | 24px     | Width |
 | height      | String        | 24px     | Height |
 | fill        | String        | #000     | Fill color |
-| hover-color        | String        | -     | Fill color when hover on icon |
+| hover-color        | String        | -     | Fill color when hover icon |
+| stroke        | String        | #000     | Stroke color |
+| hover-stroke-color        | String        | -     | Stroke color when hover icon |
 
 ## Events
 | Name          | Type          | Default  | Description  |
