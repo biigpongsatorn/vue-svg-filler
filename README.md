@@ -77,25 +77,18 @@ my-project
 ```html
 <template>
   <div>
-    <svg-filler path="static/icon/palette.svg"
-      :fill="svgPalette.fill"
-      :width="svgPalette.width"
-      :height="svgPalette.height"
-      @click="svgPalette.fill = randomColor()"/>
-    <h2 :style="{ 'color': svgPalette.fill }">{{ svgPalette.fill }}</h2>
-    <span>Click icon for change color</span>
+    <svg-filler path="/static/vue-svg-filler/icon/palette.svg" class="cs-pointer" :fill="svgPalette.color" :width="svgPalette.width" :height="svgPalette.height" @click="svgPalette.color = randomColor()"/>
+
+    <svg-filler path="/static/vue-svg-filler/icon/palette.svg" class="cs-pointer" :stroke="svgPalette.color" fill="none" :width="svgPalette.width" :height="svgPalette.height" @click="svgPalette.color = randomColor()"/>
   </div>
 </template>
 
 <script>
-import SvgFiller from 'vue-svg-filler'
-
 export default {
-  name: 'app',
   data () {
     return {
       svgPalette: {
-        fill: '#c2f91d',
+        color: this.randomColor(),
         width: '150px',
         height: '150px'
       }
@@ -103,11 +96,12 @@ export default {
   },
   methods: {
     randomColor () {
-      return `#${(Math.random()*0xFFFFFF<<0).toString(16)}`
+      let length = 6
+      let chars = '0123456789ABCDEF'
+      let hex = '#'
+      while (length--) hex += chars[(Math.random() * 16) | 0]
+      return hex
     }
-  },
-  components: {
-    SvgFiller
   }
 }
 </script>
@@ -119,35 +113,10 @@ export default {
 ```html
 <template>
   <div>
-    <svg-filler path="static/vuejs.svg"
-      :hover-color="svgVuejs.hoverColor"
-      :fill="svgVuejs.fill"
-      :width="svgVuejs.width"
-      :height="svgVuejs.height"/>
+    <svg-filler path="/static/vuejs.svg" fill="#42b883" width="150px" height="150px":hover-color="#35495e"/>
     <div>Hover me !</div>
   </div>
 </template>
-
-<script>
-import SvgFiller from 'vue-svg-filler'
-
-export default {
-  name: 'app',
-  data () {
-    return {
-      svgVuejs: {
-        fill: this.randomColor(),
-        width: '150px',
-        height: '150px',
-        hoverColor: this.randomColor()
-      }
-    }
-  },
-  components: {
-    SvgFiller
-  }
-}
-</script>
 ```
 
 # Options
