@@ -64,14 +64,14 @@ my-project
 <svg-filler path="static/github.svg"/>
 ```
 
-## Custom fill & size
+## Customize fill & size
 <img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex2.png"/>
 
 ```html
 <svg-filler path="static/icon/bitcoin.svg" fill="#FF9900" width="50px" height="50px"/>
 ```
 
-## Click
+## Fill & stroke
 <img src="https://raw.githubusercontent.com/biigpongsatorn/vue-svg-filler/HEAD/static/example/ex3.png"/>
 
 ```html
