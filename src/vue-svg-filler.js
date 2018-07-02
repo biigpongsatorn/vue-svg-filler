@@ -1,20 +1,22 @@
-<template>
-  <svg class="v-svg-filler"
-  :viewBox="viewBox"
-  :width="width"
-  :height="height"
-  :fill="fillColor"
-  :stroke="strokeColor"
-  @mouseover="mouseHoverEvent('over')"
-  @mouseleave="mouseHoverEvent('leave')"
-  @click="$emit('click')">
-    <path :d="dataOfPath"/>
-  </svg>
-</template>
-
-<script>
 export default {
   name: 'vue-svg-filler',
+  render (c) {
+    return c('svg', {
+      style: { 'vertical-align': 'middle' },
+      attrs: {
+        viewBox: this.viewBox,
+        width: this.width,
+        height: this.height,
+        fill: this.fillColor,
+        stroke: this.strokeColor
+      },
+      on: {
+        mouseover: () => this.mouseHoverEvent('over'),
+        mouseleave: () => this.mouseHoverEvent('leave'),
+        click: (event) => this.$emit('click')
+      }
+    }, [c('path', { attrs: { d: this.dataOfPath } })])
+  },
   props: {
     path: {
       type: String,
@@ -114,10 +116,3 @@ export default {
     }
   }
 }
-</script>
-
-<style scoped>
-.v-svg-filler {
-  vertical-align: middle;
-}
-</style>
