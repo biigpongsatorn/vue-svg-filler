@@ -34,10 +34,10 @@
 
 <script>
 // For test development environment.
-import SvgFiller from '../src/vue-svg-filler'
+// import SvgFiller from '../src/vue-svg-filler'
 
 // For test buit file.
-// import SvgFiller from '../dist/vue-svg-filler.min.js'
+import SvgFiller from '../dist/vue-svg-filler.min.js'
 
 export default {
   name: 'app',
