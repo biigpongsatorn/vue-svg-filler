@@ -13,7 +13,7 @@ export default {
       on: {
         mouseover: () => this.mouseHoverEvent('over'),
         mouseleave: () => this.mouseHoverEvent('leave'),
-        click: (event) => this.$emit('click')
+        click: (event) => this.$emit('click', event)
       }
     }, [c('path', { attrs: { d: this.dataOfPath } })])
   },
@@ -62,6 +62,9 @@ export default {
     },
     stroke (val) {
       this.updateStrokeColor(val)
+    },
+    path () {
+      this.createSvgElement()
     }
   },
   methods: {
