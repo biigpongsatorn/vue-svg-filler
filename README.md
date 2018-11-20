@@ -32,7 +32,7 @@ Vue.component('svg-filler', SvgFiller)
 ## 🚨 Please note that ! 
 
 1. Your `svg` file must only contain in `/static` directory
-2. `path` must be full path e.g. `static/icon.svg` or `/static/icon/file.svg` , Can't use `../` or `./`
+2. The `path` must be a relative path e.g. `static/icon.svg` or `/static/icon/file.svg` , Can't use `../` or `./`
 
 ```html
 <svg-filler path="static/PATH/OF/YOUR/FILE.svg"/>
