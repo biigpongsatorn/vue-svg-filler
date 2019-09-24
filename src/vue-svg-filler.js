@@ -70,7 +70,7 @@ export default {
   methods: {
     createSvgElement () {
       const dir = window.location.origin
-      const source = this.path.substring(0, 1) === '/' ? `${dir}${this.path}` : `${dir}/${this.path}`
+      const source = this.path.match(/^http(s?):\/\//) ? this.path : (this.path.substring(0, 1) === '/' ? `${dir}${this.path}` : `${dir}/${this.path}`)
       const request = new XMLHttpRequest()
       request.open('GET', source, true)
       request.onload = () => {
