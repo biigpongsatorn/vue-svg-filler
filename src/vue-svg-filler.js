@@ -80,7 +80,7 @@ export default {
           const tagSvg = elementSvg.getElementsByTagName('svg')[0]
           const pathOfSvg = elementSvg.getElementsByTagName('path')[0]
           if (!pathOfSvg) {
-            _errorLog(`No svg path element in your svg file.\nPath : ${source}`)
+            this._errorLog(`No svg path element in your svg file.\nPath : ${source}`)
             return
           }
           this.viewBox = tagSvg.getAttribute('viewBox')
@@ -88,16 +88,16 @@ export default {
           this.updateFillColor(this.fill)
           this.updateStrokeColor(this.stroke)
         } else {
-          _errorLog(`Can't load element from this path.\nPath : ${source}`)
+          this._errorLog(`Can't load element from this path.\nPath : ${source}`)
         }
       }
       request.onerror = () => {
-        _errorLog(`Can't load element from this path.\nPath : ${source}`)
+        this._errorLog(`Can't load element from this path.\nPath : ${source}`)
       }
       request.send()
     },
     updateSrcSvgElement (val) {
-      val ? this.dataOfPath = val : _errorLog(`Can't get attribute 'd' from your SVG file.`)
+      val ? this.dataOfPath = val : this._errorLog(`Can't get attribute 'd' from your SVG file.`)
     },
     updateFillColor (val) {
       this.fillColor = val
